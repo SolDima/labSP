@@ -1,13 +1,10 @@
 #define _CRT_SECURE_NO_WARNINGS // Щоб Visual Studio не ругався на scanf
 #include <stdio.h>
-#include <stdlib.h>  
-
-
+#include <stdlib.h>
 
 int main() {
 
     system("chcp 1251");
-
 
     int choice;
     int ShowMenu = 1;
@@ -16,105 +13,95 @@ int main() {
         if (ShowMenu == 1)
         {
             printf("\nМеню завдань:\n");
-            printf("1. Вивести \"Hello\"\n");
-            printf("2. Вивести змінну int = 10\n");
-            printf("3. Вивести float 3.14 з двома знаками після коми\n");
-            printf("4. Додати 5 і 7\n");
-            printf("5. Вивести \"Hello\" і \"World\" з табуляцією\n");
-            printf("6. Вивести float з шириною 8 і 3 знаками після коми\n");
-            printf("7. Додати 3.5 і 2.7\n");
-            printf("8. Конвертація Цельсій -> Фаренгейт\n");
-            printf("9. Перевірити парність числа\n");
-            printf("10. Порівняти два числа\n");
-            printf("-1. Вимкнути показ меню\n");
+            printf("1. Поділити два цілих числа 5 та 2 і вивести результат як float\n");
+            printf("2. Оголосити константну змінну типу float та присвоїти їй значення 3.14\n");
+            printf("3. Оголосити змінну типу char та вивести її ASCII-код\n");
+            printf("4. Ввести ціле і дробове число та вивести їх суму\n");
+            printf("5. Зчитати символ і вивести наступний символ у таблиці ASCII\n");
+            printf("6. Творче завдання 1\n");
+            printf("7. Творче завдання 2\n");
+            printf("-1. Вимкнути/увімкнути показ меню\n");
             printf("0. Вийти\n");
         }
+
         printf("Оберіть номер завдання: ");
         scanf("%d", &choice);
 
         switch (choice) {
-        case 1:
-            printf("Hello\n");
+        case 1: {
+            int a = 5, b = 2;
+            float result = (float)a / b;
+            printf("Результат: %.2f\n", result);
             break;
+        }
 
         case 2: {
-            int x = 10;
-            printf("%d\n", x);
+            const float pi = 3.14f;
+            printf("Константа: %.2f\n", pi);
             break;
         }
 
         case 3: {
-            float pi = 3.14f;
-            printf("%.2f\n", pi);
+            char ch = 'A'; // або можна зчитувати від користувача
+            printf("Символ: %c, ASCII-код: %d\n", ch, ch);
             break;
         }
 
         case 4: {
-            int a = 5, b = 7;
-            printf("%d\n", a + b);
+            int intVal;
+            float floatVal;
+            printf("Введіть ціле число: ");
+            scanf("%d", &intVal);
+            printf("Введіть дробове число: ");
+            scanf("%f", &floatVal);
+            float sum = intVal + floatVal;
+            printf("Сума: %.2f\n", sum);
             break;
         }
 
-        case 5:
-            printf("Hello\tWorld\n");
-            break;
-
-        case 6: {
-            float number = 12.34567f;
-            printf("%8.3f\n", number);
-            break;
-        }
-
-        case 7: {
-            float sum = 3.5f + 2.7f;
-            printf("%f\n", sum);
+        case 5: {
+            char inputChar;
+            printf("Введіть символ: ");
+            scanf(" %c", &inputChar);
+            char nextChar = inputChar + 1;
+            printf("Наступний символ: %c\n", nextChar);
             break;
         }
 
-        case 8: {
-            float celsius;
-            printf("Введіть температуру в Цельсіях: ");
-            scanf("%f", &celsius);
-            float fahrenheit = celsius * 9 / 5 + 32;
-            printf("Температура у Фаренгейтах: %.2f\n", fahrenheit);
+        case 6: {                               // Творче завдання 1
+            char c = 'A';
+            printf("%d\n", c + 1);
             break;
         }
 
-        case 9: {
-            int num;
-            printf("Введіть число: ");
-            scanf("%d", &num);
-            if (num % 2 == 0)
-                printf("Парне\n");
-            else
-                printf("Непарне\n");
+
+        case 7: {                               // Творче завдання 2
+            unsigned int num;
+            printf("Введіть невід'ємне ціле число: ");
+            scanf("%u", &num);
+
+            unsigned int multiplied = num << 1;  
+            unsigned int divided = num >> 1;     
+
+            printf("Результат множення на 2 (зсув вліво): %u\n", multiplied);
+            printf("Результат ділення на 2 (зсув вправо): %u\n", divided);
             break;
         }
 
-        case 10: {
-            int n1, n2;
-            printf("Введіть два числа: ");
-            scanf("%d %d", &n1, &n2);
-            if (n1 > n2)
-                printf("Більше число: %d\n", n1);
-            else if (n2 > n1)
-                printf("Більше число: %d\n", n2);
-            else
-                printf("Числа рівні\n");
-            break;
-        }
-
-        case 0:
-            printf("Вихід з програми.\n");
-            break;
 
         case -1:
             ShowMenu = !ShowMenu;
             break;
 
+        case 0:
+            printf("Вихід з програми.\n");
+            break;
+
         default:
             printf("Невірний вибір. Спробуйте ще раз.\n");
         }
+    
+
     } while (choice != 0);
 
     return 0;
