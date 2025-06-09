@@ -1,0 +1,4 @@
+﻿  lab3.c
+D:\Учоба\Учоба\Семестр 4\Спорт Прог\lab4\lab3\lab3.c(20,30): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Учоба\Учоба\Семестр 4\Спорт Прог\lab4\lab3\lab3.c(39,30): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  lab3.vcxproj -> D:\Учоба\Учоба\Семестр 4\Спорт Прог\lab4\x64\Debug\lab3.exe
